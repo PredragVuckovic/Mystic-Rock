@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystic Rock</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<script>
+	function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}	
+function checkCookie() {
+  var username = getCookie("username");
+  if (username != "") {
+  document.write("<center><h1>Welcome "+username+"</h1></center>");
+  } else {
+		while(true){
+			try{
+				username = prompt("Please enter your username:");
+				if (username == "" || username == null) {
+					throw "Unesi barem jedan karakter!";
+				}else{
+					setCookie("username", username, 365);
+					
+
+					break;
+				}
+			}catch(err){
+				alert(err);
+			}
+		}
+  }
+}
+checkCookie();
+	</script>
+</head>
+<body>
+	<br>
+	<center><h2>Choose your pilot: </h2>
+	<div class="izbor">
+		
+		<div class="cicak">
+				<h2>CICAK</h2>
+			<a href="game.html" onclick="">
+				<img src="Images/cicak.jpg">
+				<p demo="ispisCicak"></p><br>
+			</a>	
+				<p>
+					Health: 200<br>
+					Damage: 45<br>
+					Mana: 5<br>
+					Armor: 40<br>
+					Agility: 40<br>
+					Speed: 80<br>
+					Special: Rage (2x damage)<br>
+				</p>
+				<br>
+				<br>
+					<p>This ex-soldier has great damage, but has slow attack and has a low mana pool</p>
+						
+		</div>
+
+		<div class="mendi">
+				<h2>MENDI</h2>
+			<a href="game.html" onclick="">
+				<img src="Images/medni.jpg">
+			</a>
+				<p>
+					Health: 100<br>
+					Damage: 35<br>
+					Mana: 15<br>
+					Armor: 30<br>
+					Agility: 60<br>
+					Speed: 170<br>
+					Special: Steal (steals gold and chance to steal stat)<br>
+				</p>	
+				<br>
+				<br>
+					<p>On a quest to find a great treasure for her homeland. Low health but great speed and good damage. Glass canon  </p>
+
+		</div>
+
+		<div class="zeka">
+				<h2>ZEKA</h2>
+			<a href="game.html" onclick="">
+				<img src="Images/zeka.jpg">
+			</a>
+				<p>
+					Health: 150<br>
+					Damage: 30<br>
+					Mana: 10<br>
+					Armor: 35<br>
+					Agility: 50<br>
+					Speed: 135<br>
+					Special: The look of death (Freeze enemy for 2 turns) <br>
+				</p>	
+				<br>
+				<br>
+
+					<p>Raised by Indians on the way to find her destiny. Very balanced pilot overall. </p>
+		</div>
+	</div>
+	</center>
+</body>
+</html>
